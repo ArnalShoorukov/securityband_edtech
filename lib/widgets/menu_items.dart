@@ -1,4 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:securityband_edtech/helpers.dart';
+
+import '../success_model.dart';
+import 'slider.dart';
 
 class Menu {
   static bottomSheetMore(context) {
@@ -424,6 +429,267 @@ class Menu {
               new Divider(height: 10.0),
             ],
           ),
+        );
+      },
+    );
+  }
+
+  static final raw1 = SuccessModel(
+      image: Helpers.one,
+      title: 'Делись опытом',
+      body: 'Участие в проектах в качестве наставника для состоявшихся профессионалов');
+  static final raw2 = SuccessModel(
+      image: Helpers.two,
+      title: 'Доброволец России',
+      body: 'Участие в проектах в качестве наставника для состоявшихся профессионалов');
+  static final raw3 = SuccessModel(
+      image: Helpers.three,
+      title: 'Делись опытом',
+      body: 'Участие в проектах в качестве наставника для состоявшихся профессионалов');
+
+  static final List<SuccessModel> imgList = [raw1, raw2, raw3];
+
+  static final List<Widget> imageSliders = imgList
+      .map((item) => Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Container(
+                margin: EdgeInsets.all(5.0),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 20),
+                            Image.asset(item.image),
+                            SizedBox(height: 16),
+                            Text(item.title,
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black)),
+                            SizedBox(height: 20),
+                            Text(item.body,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black)),
+                            SizedBox(height: 28),
+                            Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16)),
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: const Text(
+                                    'Перейти',
+                                    style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )),
+              ),
+            ),
+      ))
+      .toList();
+
+  static bottomSheetHelp(context) {
+    showModalBottomSheet(
+      backgroundColor: Colors.grey.shade200,
+      isScrollControlled: true,
+      context: context,
+      builder: (builder) {
+        return CarouselSlider(
+          items: imageSliders,
+          options: CarouselOptions(
+              enlargeCenterPage: true, height: MediaQuery.of(context).size.height * 0.6),
+          //carouselController: _controller,
+        );
+      },
+    );
+  }
+  static final raw11 = SuccessModel(
+      image: Helpers.four,
+      title: 'Алиса Котова',
+      body: 'Мой путь можно описать как “Если гора не идёт, то пойду я” и приложив усилия, смогла достичь своих целей');
+  static final raw21 = SuccessModel(
+      image: Helpers.two,
+      title: 'Доброволец России',
+      body: 'Участие в проектах в качестве наставника для состоявшихся профессионалов');
+  static final raw31 = SuccessModel(
+      image: Helpers.three,
+      title: 'Делись опытом',
+      body: 'Участие в проектах в качестве наставника для состоявшихся профессионалов');
+
+  static final List<SuccessModel> imgList1 = [raw11, raw11, raw11];
+
+  static final List<Widget> imageSliders1 = imgList1
+      .map((item) => Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16)),
+      child: Container(
+        margin: EdgeInsets.all(5.0),
+        child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20),
+                    Image.asset(item.image),
+                    SizedBox(height: 16),
+                    Text(item.title,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black)),
+                    SizedBox(height: 20),
+                    Text(item.body,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black)),
+                    SizedBox(height: 28),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: const Text(
+                            'Перейти',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )),
+      ),
+    ),
+  ))
+      .toList();
+  static bottomSheetSuccess(context) {
+    showModalBottomSheet(
+      backgroundColor: Colors.grey.shade200,
+      isScrollControlled: true,
+      context: context,
+      builder: (builder) {
+        return CarouselSlider(
+          items: imageSliders1,
+          options: CarouselOptions(
+              enlargeCenterPage: true, height: MediaQuery.of(context).size.height * 0.6),
+          //carouselController: _controller,
+        );
+      },
+    );
+  }
+
+  static final pro1 = SuccessModel(
+      image: Helpers.proOne,
+      title: 'Учитель будущего. \n Студенты ',
+      body: 'Профессиональный конкурс для студентов, которые хотят стать учителями и связать свою ж...');
+  static final pro2 = SuccessModel(
+      image: Helpers.proTwo,
+      title: ' «Лидеры России» ',
+      body: 'Конкурс открывает талантливым управленцам путь для продвижения на высокие позиции в ор...');
+  static final pro3 = SuccessModel(
+      image: Helpers.proThree,
+      title: 'Твой ход ',
+      body: 'Всероссийский конкурс для студентов, которые хотят испытать себя в самых разных област...');
+
+  static final List<SuccessModel> imgListPro = [pro1, pro2, pro3];
+
+  static final List<Widget> imageSlidersPro = imgListPro
+      .map((item) => Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16)),
+      child: Container(
+        margin: EdgeInsets.all(5.0),
+        child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20),
+                    Image.asset(item.image),
+                    SizedBox(height: 16),
+                    Text(item.title,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black)),
+                    SizedBox(height: 20),
+                    Text(item.body,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black)),
+                    SizedBox(height: 28),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: const Text(
+                            ' Подробнее',
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )),
+      ),
+    ),
+  ))
+      .toList();
+  static bottomSheetProjects(context) {
+    showModalBottomSheet(
+      backgroundColor: Colors.grey.shade200,
+      isScrollControlled: true,
+      context: context,
+      builder: (builder) {
+        return CarouselSlider(
+          items: imageSlidersPro,
+          options: CarouselOptions(
+              enlargeCenterPage: true, height: MediaQuery.of(context).size.height * 0.6),
+          //carouselController: _controller,
         );
       },
     );

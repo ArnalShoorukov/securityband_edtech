@@ -118,22 +118,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ElevatedButton(
                   child: success(),
                   onPressed: () {
-                   // showToast();
-                    //  _showMyDialogButtons();
+                    Menu.bottomSheetSuccess(context);
                   },
                 ),
                 SizedBox(height: 4),
                 ElevatedButton(
                   child: help(),
                   onPressed: () {
-
+                    Menu.bottomSheetHelp(context);
                   },
                 ),
                 SizedBox(height: 4),
                 ElevatedButton(
                   child: projects(),
                   onPressed: () {
-
+                    Menu.bottomSheetProjects(context);
                     //  _showMyDialogButtons();
                   },
                 ),
@@ -191,7 +190,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget success() {
     return Row(
       children: [
-        IconButton(icon: Icon(Icons.wallpaper_sharp), onPressed: () {}),
+        IconButton(icon: Icon(Icons.wallpaper_sharp), onPressed: () {
+          Menu.bottomSheetSuccess(context);
+        }),
         Text('История успеха'),
       ],
     );
@@ -200,7 +201,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget help() {
     return Row(
       children: [
-        IconButton(icon: Icon(Icons.clean_hands_sharp), onPressed: () {}),
+        IconButton(icon: Icon(Icons.clean_hands_sharp), onPressed: () {
+          Menu.bottomSheetHelp(context);
+        }),
         Text('Помощь другим'),
       ],
     );
@@ -209,7 +212,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget projects() {
     return Row(
       children: [
-        IconButton(icon: Icon(Icons.star_border_sharp), onPressed: () {}),
+        IconButton(icon: Icon(Icons.star_border_sharp), onPressed: () {
+          Menu.bottomSheetProjects(context);
+        }),
         Text('Проекты'),
       ],
     );
